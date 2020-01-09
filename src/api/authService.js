@@ -1,14 +1,14 @@
+/* eslint-disable no-unused-vars */
 /*
  * @Author: your name
  * @Date: 2019-09-17 14:36:09
- * @LastEditTime: 2019-10-29 15:37:17
- * @LastEditors: your name
+ * @LastEditTime : 2020-01-09 11:27:32
+ * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \frontend\src\api\authService.js
  */
 import { Modal } from 'antd';
 import axios from '@/config/http.filter';
-import http from '@/config/http';
 import mockData from '@/api/mock'
 
 const errorHandler = error => {
@@ -21,23 +21,20 @@ const errorHandler = error => {
     console.log(error);
 }
 export default {
-    test() {
-        console.log(http);
-    },
     login(params) {
-        return axios.post(`${http.gwApiPrefix}/api/auth/login`, params).catch(errorHandler);
+        return axios.post(`/api/auth/login`, params).catch(errorHandler);
     },
     logout() {
-        return axios.get(`${http.gwApiPrefix}/api/auth/logout`).catch(errorHandler)
+        return axios.get(`/api/auth/logout`).catch(errorHandler)
     },
     getTopMenu() {
-        return axios.get(`${http.gwApiPrefix}/api/system/admin/resource/topmenu`).catch(errorHandler)
+        return axios.get(`/api/system/admin/resource/topmenu`).catch(errorHandler)
     },
     getLeftMenu(topMenuId) {
-        return axios.get(`${http.gwApiPrefix}/api/system/admin/resource/leftmenu`).catch(errorHandler)
-        // return axios.get(`${http.gwApiPrefix}/api/system/admin/resource/leftmenu/${topMenuId}`).catch(errorHandler)
+        return axios.get(`/api/system/admin/resource/leftmenu`).catch(errorHandler)
+        // return axios.get(`/api/system/admin/resource/leftmenu/${topMenuId}`).catch(errorHandler)
     },
     getAuthAction() {
-        return axios.get(`${http.gwApiPrefix}/api/auth/getOperAuthSet`).catch(errorHandler)
+        return axios.get(`/api/auth/getOperAuthSet`).catch(errorHandler)
     }
 }
